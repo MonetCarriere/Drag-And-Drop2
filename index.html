@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
+            <title>Drag&Drop</title>
+            
+<style>
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.dragzone, .dropzone {
+    height: 400px;
+    width: 40%;
+    border: 2px solid black;
+    float: left;
+    margin-top: 150px;
+    margin-left: 7%;
+}
+</style>
+
+</head>
+
+<body>
+    
+
+<div class="dragzone">
+    <img src="maurice.png" class="dragelement" height="300px">
+</div>
+
+<div class="dropzone" ondragover="allowDrop(event)" ondrop="">
+
+</div>
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.dragelement').draggable();
+
+        $('.dropzone').droppable(
+            {
+                accept:'.dragelement',
+                drop:function(){
+                    let kanye = $(ui.draggable).clone();
+                    $(this).append(moss);
+                }
+        });
+    });
+    var id;
+
+    function allowDrop(ev) 
+    {
+        ev.preventDefault();
+    }
+
+    function dragStart(ev) 
+    {
+        id=ev.target.id;
+        //alert(id);
+    }
+</script>
+</body>
+</html>
